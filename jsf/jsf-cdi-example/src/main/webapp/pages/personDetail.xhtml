@@ -1,0 +1,40 @@
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+
+        <h:form>
+
+            <h:inputText id="person-name"
+                         value="#{personDetailBackingBean.personModel.name}"
+                         required="true"
+                         requiredMessage="This is required field!">
+            </h:inputText>
+
+            <h:message styleClass="error-message" for="person-name"/>
+
+            <h:selectOneMenu id="person-gender"
+                             value="#{personDetailBackingBean.personModel.gender}"
+                             required="true"
+                             requiredMessage="This is required field!">
+                <f:selectItem value="#{null}" noSelectionOption="true"/>
+                <f:selectItems value="#{personDetailBackingBean.genderOptions}"
+                               var="item" itemValue="#{item}"
+                               itemLabel="#{item.toString().toLowerCase()}"/>
+            </h:selectOneMenu>
+
+            <h:message styleClass="error-message" for="person-gender"/>
+
+            <div class="buttons">
+                <h:commandButton value="Save" action="#{personDetailBackingBean.savePerson}"/>
+                <h:commandButton value="Back" action="personList?faces-redirect=true" immediate="true"/>
+            </div>
+
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>

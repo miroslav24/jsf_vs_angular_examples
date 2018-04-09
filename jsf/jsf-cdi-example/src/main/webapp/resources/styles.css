@@ -1,0 +1,41 @@
+body {
+    color: black;
+    font-family: sans-serif;
+}
+
+a {
+    color: black;
+}
+
+a, button, input[type=submit] {
+    display: inline-block;
+    background-color: darkcyan;
+    padding: 6px;
+    margin: 3px;
+    border: none;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+a:hover, button:hover, input[type=submit]:hover {
+    cursor: pointer;
+}
+
+.buttons > * {
+    float: left;
+}
+
+.buttons:after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+.error-message {
+    color: red;
+    display: block;
+}
+
+input[type=text], select {
+    display: block;
+}
